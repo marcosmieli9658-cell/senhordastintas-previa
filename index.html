@@ -149,51 +149,31 @@ nav a:hover::after{width:100%}
   content:'';position:absolute;top:0;left:0;right:0;height:5px;display:flex;
   background:linear-gradient(90deg,#E4322B 0 12.5%,#F5A623 0 25%,#F7E017 0 37.5%,#3DBE4B 0 50%,#00A9C4 0 62.5%,#2B47FF 0 75%,#7B3FE4 0 87.5%,#E0398A 0 100%);
 }
-.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(40px,5vw,72px);align-items:center}
-.hero .eyebrow{color:var(--cyan)}
+.hero .wrap{position:relative;z-index:2;max-width:900px;text-align:center}
+.hero .eyebrow{color:var(--cyan);justify-content:center}
 .hero .eyebrow::before{content:'';width:26px;height:2px;background:var(--cyan);border-radius:2px}
-.hero h1{color:#fff;margin:22px 0 0}
+.hero .eyebrow::after{content:'';width:26px;height:2px;background:var(--cyan);border-radius:2px}
+.hero h1{color:#fff;margin:24px 0 0;font-size:clamp(2.5rem,6.6vw,4.6rem)}
 .hero h1 .hl{
   background:linear-gradient(102deg,#7FD8FF,#DAF2FF);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.hero p.lead{color:rgba(255,255,255,.8);margin:24px 0 0;max-width:33rem}
-.hero-actions{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
-.hero-note{margin-top:20px;font-size:.86rem;color:rgba(255,255,255,.55);font-weight:600;display:flex;align-items:center;gap:8px}
+.hero p.lead{color:rgba(255,255,255,.8);margin:26px auto 0;max-width:38rem}
+.hero-actions{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+.hero-note{margin-top:22px;font-size:.86rem;color:rgba(255,255,255,.55);font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px}
 .hero-note svg{width:16px;height:16px;color:var(--wa)}
+.hero-swatches{display:flex;height:9px;max-width:420px;margin:44px auto 0;border-radius:100px;overflow:hidden;opacity:.9}
+.hero-swatches i{flex:1}
 
 /* trust bar */
 .trust{
   display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
-  margin-top:52px;padding-top:34px;border-top:1px solid rgba(255,255,255,.14);
+  margin:52px auto 0;padding-top:34px;border-top:1px solid rgba(255,255,255,.14);
+  max-width:820px;
 }
-.trust div{display:flex;flex-direction:column;gap:3px}
+.trust div{display:flex;flex-direction:column;gap:3px;align-items:center}
 .trust b{font-size:clamp(1.25rem,2.4vw,1.75rem);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.1}
 .trust span{font-size:.76rem;color:rgba(255,255,255,.58);font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1.35}
-
-/* hero visual */
-.hero-visual{position:relative}
-.hero-card{
-  border-radius:var(--radius);overflow:hidden;
-  box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.14);
-  transform:perspective(1400px) rotateY(-7deg) rotateX(2.5deg);transition:transform .6s cubic-bezier(.4,0,.2,1);
-}
-.hero-card:hover{transform:perspective(1400px) rotateY(-3deg) rotateX(1deg) translateY(-6px)}
-.hero-card img{width:100%}
-.swatches{display:flex;height:12px}
-.swatches i{flex:1}
-.badge-float{
-  position:absolute;bottom:-26px;left:-26px;background:#fff;color:var(--ink);
-  border-radius:16px;padding:16px 22px;box-shadow:var(--shadow-lg);
-  display:flex;align-items:center;gap:13px;
-}
-.badge-float .ico{
-  width:42px;height:42px;border-radius:11px;flex-shrink:0;
-  background:linear-gradient(135deg,var(--brand),var(--brand-bright));
-  display:grid;place-items:center;color:#fff;font-weight:800;font-size:.95rem;
-}
-.badge-float b{display:block;font-size:.95rem;font-weight:800;line-height:1.25}
-.badge-float span{font-size:.78rem;color:var(--body);font-weight:600}
 
 /* ---------- MARCAS ---------- */
 .brands{background:var(--bg-soft);padding:44px 0;border-bottom:1px solid var(--line)}
@@ -261,15 +241,18 @@ section{padding:clamp(70px,9vw,108px) 0}
 .why-item p{font-size:.9rem;color:var(--body)}
 
 /* sobre / loja */
-.about .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,5vw,70px);align-items:center}
-.about-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);position:relative}
-.about-img img{width:100%}
-.about .eyebrow{color:var(--brand)}
+.about .wrap{max-width:760px;text-align:center}
+.about .eyebrow{color:var(--brand);justify-content:center}
+.about .eyebrow::before,.about .eyebrow::after{content:'';width:22px;height:2px;background:var(--brand);border-radius:2px;opacity:.5}
 .about h2{margin:16px 0 20px}
-.about p{color:var(--body);margin-bottom:16px}
-.check-list{list-style:none;margin-top:26px;display:grid;gap:13px}
-.check-list li{display:flex;gap:13px;align-items:flex-start;font-weight:600;font-size:.97rem}
-.check-list svg{width:22px;height:22px;color:var(--wa);flex-shrink:0;margin-top:1px}
+.about p{color:var(--body);margin:0 auto 16px;max-width:38rem}
+.check-list{
+  list-style:none;margin:34px auto 0;display:grid;gap:14px;
+  grid-template-columns:repeat(2,auto);justify-content:center;text-align:left;
+}
+.check-list li{display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:.95rem}
+.check-list svg{width:21px;height:21px;color:var(--wa);flex-shrink:0;margin-top:1px}
+@media(max-width:700px){.check-list{grid-template-columns:1fr;max-width:26rem}}
 
 /* depoimentos */
 .reviews{background:var(--navy-deep);color:#fff}
@@ -369,10 +352,7 @@ footer{background:#03061F;color:rgba(255,255,255,.62);padding:62px 0 0;font-size
 
 /* ---------- RESPONSIVO ---------- */
 @media(max-width:980px){
-  .hero .wrap,.about .wrap,.local .wrap{grid-template-columns:1fr}
-  .hero-visual{order:-1;margin-bottom:14px}
-  .hero-card{transform:none}
-  .badge-float{left:auto;right:14px;bottom:-20px;padding:13px 18px}
+  .local .wrap{grid-template-columns:1fr}
   .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
   nav{
@@ -468,23 +448,11 @@ footer{background:#03061F;color:rgba(255,255,255,.62);padding:62px 0 0;font-size
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="swatches">
-          <i style="background:#E4322B"></i><i style="background:#F5A623"></i><i style="background:#F7E017"></i>
-          <i style="background:#3DBE4B"></i><i style="background:#00A9C4"></i><i style="background:#2B47FF"></i>
-          <i style="background:#7B3FE4"></i><i style="background:#E0398A"></i>
-        </div>
-        <img src="assets/letreiro.jpg" alt="Fachada da loja Senhor das Tintas em São José dos Campos" width="1175" height="310">
+      <div class="hero-swatches" aria-hidden="true">
+        <i style="background:#E4322B"></i><i style="background:#F5A623"></i><i style="background:#F7E017"></i>
+        <i style="background:#3DBE4B"></i><i style="background:#00A9C4"></i><i style="background:#2B47FF"></i>
+        <i style="background:#7B3FE4"></i><i style="background:#E0398A"></i>
       </div>
-      <div class="badge-float">
-        <div class="ico">7+</div>
-        <div>
-          <b>Loja física em SJC</b>
-          <span>Av. Tancredo Neves, 3100</span>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -578,9 +546,6 @@ footer{background:#03061F;color:rgba(255,255,255,.62);padding:62px 0 0;font-size
 <!-- ================= A LOJA ================= -->
 <section class="about" id="loja">
   <div class="wrap">
-    <div class="about-img reveal">
-      <img src="assets/letreiro.jpg" alt="Letreiro da loja Senhor das Tintas com as marcas Coral e Sparlack Cetol" loading="lazy">
-    </div>
     <div class="reveal">
       <span class="eyebrow">Experiência &amp; confiança</span>
       <h2>Seu parceiro de confiança em pintura</h2>
